@@ -5,38 +5,100 @@
         static void Main(string[] args)
         {
             var sss = new Solution();
-            Console.WriteLine(sss.CountCharacters(["cat", "bt", "hat", "tree"], "atach"));
+            Console.WriteLine(sss.DayOfYear("2019-01-09"));
         }
     }
 
-
     public class Solution
     {
-        //1160
-        public int CountCharacters(string[] words, string chars)
+        //1154
+        public int DayOfYear(string date)
         {
-            var result = 0;
-            var checker = true;
-            foreach(var word in words)
+            //2019-01-09
+            var result = int.Parse(date.Substring(date.Length - 2));
+            var month = int.Parse(date.Substring(date.Length - 5, 2));
+            var year = int.Parse(date.Substring(0, 4));
+            switch (month)
             {
-                foreach(var ch in word)
+                case 2:
+                    result += 31;
+                    break;
+                case 3:
+                    result += 31*2-1;
+                    break;
+                case 4:
+                    result += 31 * 3 - 1;
+                    break;
+                case 5:
+                    result += 31 * 4 - 2;
+                    break;
+                case 6:
+                    result += 31 * 5 - 2;
+                    break;
+                case 7:
+                    result += 31 * 6 - 3;
+                    break;
+                case 8:
+                    result += 31 * 7 - 3;
+                    break;
+                case 9:
+                    result += 31 * 8 - 3;
+                    break;
+                case 10:
+                    result += 31 * 9 - 4;
+                    break;
+                case 11:
+                    result += 31 * 10 - 4;
+                    break;
+                case 12:
+                    result += 31 * 11 - 5;
+                    break;
+            }
+
+            if(month > 2)
+            {
+                if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
                 {
-                    if(chars.Count(x=>x == ch) >= word.Count(x=>x == ch))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        checker = false;
-                        break;
-                    }
+                    result -= 1;
                 }
-                if (checker) result += word.Length;
-                checker = true;
+                else
+                {
+                    result -= 2;
+                }
             }
             return result;
         }
     }
+
+
+
+    //public class Solution
+    //{
+    //    //1160
+    //    public int CountCharacters(string[] words, string chars)
+    //    {
+    //        var result = 0;
+    //        var checker = true;
+    //        foreach(var word in words)
+    //        {
+    //            foreach(var ch in word)
+    //            {
+    //                if(chars.Count(x=>x == ch) >= word.Count(x=>x == ch))
+    //                {
+    //                    continue;
+    //                }
+    //                else
+    //                {
+    //                    checker = false;
+    //                    break;
+    //                }
+    //            }
+    //            if (checker) result += word.Length;
+    //            checker = true;
+    //        }
+    //        return result;
+    //    }
+    //}
 
     //public class Solution
     //{
