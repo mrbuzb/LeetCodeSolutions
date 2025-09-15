@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp8
+﻿using System.Text;
+
+namespace ConsoleApp8
 {
     public class Program
     {
@@ -9,66 +11,99 @@
         }
     }
 
+
+
+
+
     public class Solution
     {
-        //1154
-        public int DayOfYear(string date)
+        //1108
+        public string DefangIPaddr(string address)
         {
-            //2019-01-09
-            var result = int.Parse(date.Substring(date.Length - 2));
-            var month = int.Parse(date.Substring(date.Length - 5, 2));
-            var year = int.Parse(date.Substring(0, 4));
-            switch (month)
+            //return address.Replace(".", "[.]");
+            var result = new StringBuilder();
+            foreach (var c in address)
             {
-                case 2:
-                    result += 31;
-                    break;
-                case 3:
-                    result += 31*2-1;
-                    break;
-                case 4:
-                    result += 31 * 3 - 1;
-                    break;
-                case 5:
-                    result += 31 * 4 - 2;
-                    break;
-                case 6:
-                    result += 31 * 5 - 2;
-                    break;
-                case 7:
-                    result += 31 * 6 - 3;
-                    break;
-                case 8:
-                    result += 31 * 7 - 3;
-                    break;
-                case 9:
-                    result += 31 * 8 - 3;
-                    break;
-                case 10:
-                    result += 31 * 9 - 4;
-                    break;
-                case 11:
-                    result += 31 * 10 - 4;
-                    break;
-                case 12:
-                    result += 31 * 11 - 5;
-                    break;
-            }
-
-            if(month > 2)
-            {
-                if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+                if (c != '.')
                 {
-                    result -= 1;
+                    result.Append(c);
                 }
                 else
                 {
-                    result -= 2;
+                    result.Append("[.]");
                 }
             }
-            return result;
+            return result.ToString();
         }
     }
+
+
+
+
+
+
+
+
+    //public class Solution
+    //{
+    //    //1154
+    //    public int DayOfYear(string date)
+    //    {
+    //        //2019-01-09
+    //        var result = int.Parse(date.Substring(date.Length - 2));
+    //        var month = int.Parse(date.Substring(date.Length - 5, 2));
+    //        var year = int.Parse(date.Substring(0, 4));
+    //        switch (month)
+    //        {
+    //            case 2:
+    //                result += 31;
+    //                break;
+    //            case 3:
+    //                result += 31*2-1;
+    //                break;
+    //            case 4:
+    //                result += 31 * 3 - 1;
+    //                break;
+    //            case 5:
+    //                result += 31 * 4 - 2;
+    //                break;
+    //            case 6:
+    //                result += 31 * 5 - 2;
+    //                break;
+    //            case 7:
+    //                result += 31 * 6 - 3;
+    //                break;
+    //            case 8:
+    //                result += 31 * 7 - 3;
+    //                break;
+    //            case 9:
+    //                result += 31 * 8 - 3;
+    //                break;
+    //            case 10:
+    //                result += 31 * 9 - 4;
+    //                break;
+    //            case 11:
+    //                result += 31 * 10 - 4;
+    //                break;
+    //            case 12:
+    //                result += 31 * 11 - 5;
+    //                break;
+    //        }
+
+    //        if(month > 2)
+    //        {
+    //            if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+    //            {
+    //                result -= 1;
+    //            }
+    //            else
+    //            {
+    //                result -= 2;
+    //            }
+    //        }
+    //        return result;
+    //    }
+    //}
 
 
 
