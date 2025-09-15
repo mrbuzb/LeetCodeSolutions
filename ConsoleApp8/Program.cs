@@ -5,30 +5,81 @@
         static void Main(string[] args)
         {
             var sss = new Solution();
-            Console.WriteLine(sss.FindOcurrences("obo jvezipre obo jnvavldde jvezipre jvezipre jnvavldde jvezipre jvezipre jvezipre y jnvavldde jnvavldde obo jnvavldde jnvavldde obo jnvavldde jnvavldde jvezipre", "jnvavldde", "y"));
+            Console.WriteLine(sss.GcdOfStrings("ABCABC", "ABC"));
         }
     }
 
-    public class Solution
-    {
-        //1078
-        public string[] FindOcurrences(string text, string first, string second)
-        {
-            var result = string.Empty;
-            var textArray = text.Split(' ');
-            for (int i = 0; i < textArray.Length - 1; i++)
-            {
-                if (textArray[i] == first && textArray[i + 1] == second && i != textArray.Length - 2)
-                {
-                    result += textArray[i + 2];
-                    result += ' ';
-                }
-            }
-            var finalResult = result.Trim().Split(' ');
-            if (finalResult.Length == 1 && finalResult[0] == "") return [];
-            return finalResult;
-        }
-    }
+    //public class Solution
+    //{
+          //1071
+    //    public string GcdOfStrings(string str1, string str2)
+    //    {
+    //        if(str1 == str2) return str1;
+    //        if(str1.Length> str2.Length && str1.Contains(str2))
+    //        {
+    //            var str2Copy = str2;
+    //            while(true)
+    //            {
+    //                var res1 = string.Empty;
+    //                var res2 = string.Empty;
+    //                while (res1.Length < str1.Length)
+    //                {
+    //                    res1 += str2Copy;
+    //                }
+    //                while (res2.Length < str2.Length)
+    //                {
+    //                    res2 += str2Copy;
+    //                }
+    //                if(res1 == str1 && res2 == str2) return str2Copy;
+    //                str2Copy = str2Copy.Remove(str2Copy.Length - 1);
+    //                if(str2Copy.Length == 0) break;
+    //            }
+    //        }
+    //        if(str2.Length> str1.Length && str2.Contains(str1))
+    //        {
+    //            var str1Copy = str1;
+    //            while(true)
+    //            {
+    //                var res2 = string.Empty;
+    //                var res1 = string.Empty;
+    //                while (res2.Length < str2.Length)
+    //                {
+    //                    res2 += str1Copy;
+    //                }
+    //                while (res1.Length < str1.Length)
+    //                {
+    //                    res1 += str1Copy;
+    //                }
+    //                if(res2 == str2 && res1 == str1) return str1Copy;
+    //                str1Copy = str1Copy.Remove(str1Copy.Length - 1);
+    //                if(str1Copy.Length == 0) break;
+    //            }
+    //        }
+    //        return "";
+    //    }
+    //}
+
+
+    //public class Solution
+    //{
+    //    //1078
+    //    public string[] FindOcurrences(string text, string first, string second)
+    //    {
+    //        var result = string.Empty;
+    //        var textArray = text.Split(' ');
+    //        for (int i = 0; i < textArray.Length - 1; i++)
+    //        {
+    //            if (textArray[i] == first && textArray[i + 1] == second && i != textArray.Length - 2)
+    //            {
+    //                result += textArray[i + 2];
+    //                result += ' ';
+    //            }
+    //        }
+    //        var finalResult = result.Trim().Split(' ');
+    //        if (finalResult.Length == 1 && finalResult[0] == "") return [];
+    //        return finalResult;
+    //    }
+    //}
 
 
 
