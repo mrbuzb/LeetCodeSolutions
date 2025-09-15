@@ -1,41 +1,58 @@
-﻿using System.Text;
-
-namespace ConsoleApp8
+﻿namespace ConsoleApp8
 {
     public class Program
     {
         static void Main(string[] args)
         {
             var sss = new Solution();
-            Console.WriteLine(sss.DayOfYear("2019-01-09"));
+            Console.WriteLine(sss.FindOcurrences("obo jvezipre obo jnvavldde jvezipre jvezipre jnvavldde jvezipre jvezipre jvezipre y jnvavldde jnvavldde obo jnvavldde jnvavldde obo jnvavldde jnvavldde jvezipre", "jnvavldde", "y"));
         }
     }
-
-
-
-
 
     public class Solution
     {
-        //1108
-        public string DefangIPaddr(string address)
+        //1078
+        public string[] FindOcurrences(string text, string first, string second)
         {
-            //return address.Replace(".", "[.]");
-            var result = new StringBuilder();
-            foreach (var c in address)
+            var result = string.Empty;
+            var textArray = text.Split(' ');
+            for (int i = 0; i < textArray.Length - 1; i++)
             {
-                if (c != '.')
+                if (textArray[i] == first && textArray[i + 1] == second && i != textArray.Length - 2)
                 {
-                    result.Append(c);
-                }
-                else
-                {
-                    result.Append("[.]");
+                    result += textArray[i + 2];
+                    result += ' ';
                 }
             }
-            return result.ToString();
+            var finalResult = result.Trim().Split(' ');
+            if (finalResult.Length == 1 && finalResult[0] == "") return [];
+            return finalResult;
         }
     }
+
+
+
+    //public class Solution
+    //{
+    //    //1108
+    //    public string DefangIPaddr(string address)
+    //    {
+    //        //return address.Replace(".", "[.]");
+    //        var result = new StringBuilder();
+    //        foreach (var c in address)
+    //        {
+    //            if (c != '.')
+    //            {
+    //                result.Append(c);
+    //            }
+    //            else
+    //            {
+    //                result.Append("[.]");
+    //            }
+    //        }
+    //        return result.ToString();
+    //    }
+    //}
 
 
 
