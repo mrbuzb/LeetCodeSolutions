@@ -5,13 +5,39 @@
         static void Main(string[] args)
         {
             var sss = new Solution();
-            Console.WriteLine(sss.GcdOfStrings("ABCABC", "ABC"));
+            Console.WriteLine(sss.RemoveDuplicates("abbaca"));
+
+
         }
     }
 
+
+
+
+
+    public class Solution
+    {
+        //1047
+        public string RemoveDuplicates(string s)
+        {
+            for (int i = 0;i<s.Length-1;i++)
+            {
+                if (s[i] == s[i + 1])
+                {
+                    s = s.Remove(i,2);
+                    i = -1;
+                }
+            }
+            return s;
+        }
+    }
+
+
+
+
     //public class Solution
     //{
-          //1071
+    //1071
     //    public string GcdOfStrings(string str1, string str2)
     //    {
     //        if(str1 == str2) return str1;
