@@ -1,36 +1,58 @@
-﻿namespace ConsoleApp8
+﻿using System.Numerics;
+
+namespace ConsoleApp8
 {
     public class Program
     {
         static void Main(string[] args)
         {
             var sss = new Solution();
-            Console.WriteLine(sss.RemoveDuplicates("abbaca"));
+            //Console.WriteLine(sss.RemoveDuplicates("abbaca"));
 
 
         }
     }
-
-
-
 
 
     public class Solution
     {
-        //1047
-        public string RemoveDuplicates(string s)
+        //415
+        public string AddStrings(string num1, string num2)
         {
-            for (int i = 0;i<s.Length-1;i++)
-            {
-                if (s[i] == s[i + 1])
-                {
-                    s = s.Remove(i,2);
-                    i = -1;
-                }
-            }
-            return s;
+            //Illegal Solution
+            return (BigInteger.Parse(num1) + BigInteger.Parse(num2)).ToString();
         }
     }
+
+
+
+
+    //public class Solution
+    //{
+    //    public string RemoveOuterParentheses(string s)
+    //    {
+    //        return s.Replace("()", "");
+    //    }
+    //}
+
+
+
+    //public class Solution
+    //{
+    //    //1047
+    //    public string RemoveDuplicates(string s)
+    //    {
+    //        for (int i = 0;i<s.Length-1;i++)
+    //        {
+    //            if (s[i] == s[i + 1])
+    //            {
+    //                s = s.Remove(i,2);
+    //                i = -1;
+    //            }
+    //        }
+    //        return s;
+    //    }
+    //}
 
 
 
